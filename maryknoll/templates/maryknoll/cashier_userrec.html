@@ -1,0 +1,222 @@
+{% extends 'maryknoll/cashier_base.html' %}
+
+{% block body %}
+
+    <!-- CONTENT -->
+    <div class="container-fluid bg-content">
+      <div class="content"> 
+        <a href="financial-records.html"><h4><i class="fa fa-angle-left" aria-hidden="true"></i> Back to records list</h4></a>
+        <div class="card">
+          <div class="card-block">
+            <div class="row">
+              <div class="col">
+                <img src="https://78.media.tumblr.com/038836d16f3555c38955946556113870/tumblr_oyoxeqBH431wuzkhho1_400.png" width="150">
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-auto">
+                    <h1 class="card-title">Millie-Bobbie Brown</h1>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h6 class="card-subtitle mb-2 link">Student ID: <span class="text-muted">0001</span></h6>
+                    <h6 class="card-subtitle mb-2 link">Account Balance: <span class=" text-muted">12,000.00</span></h6>
+                    <h6 class="card-subtitle link mb-2 ">Miscellaneous Fees: <span class="text-muted">2,000.00</span></h6>
+                    <h6 class="card-subtitle link mb-2 ">Scholarship discount: <span class="text-muted">5,000.00</span></h6>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="card-subtitle link mb-2 ">Total Amount Paid: <span class="text-muted">10,000.00</span></h6>
+                    <h6 class="card-subtitle link mb-2 ">Total Amount Due: <span class="text-muted">20,000.00</span></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row records">
+              <div class="col-md-8">
+                <h2>Financial Records</h2>
+              </div>
+              <div class="col-md-4">
+                <div class="float-right">
+                  <button type="button" class="add-button btn btn-primary" data-toggle="modal" data-target="#addModal">Create Financial Record</button>
+                  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="labelModal">Add Student Financial Record</h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="alert alert-success success-message" role="alert">
+                              Record successfully added!
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label>Student ID:</label>
+                                <input type="text" class="form-control" required>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label>Month:</label><br/>
+                                <select class="custom-select btn-block" required>
+                                  <option selected>Pick a month..</option>
+                                  <option value="1">May</option>
+                                  <option value="2">June</option>
+                                  <option value="3">July</option>
+                                  <option value="4">August</option>
+                                  <option value="5">September</option>
+                                  <option value="6">October</option>
+                                  <option value="7">November</option>
+                                  <option value="8">December</option>
+                                  <option value="9">January</option>
+                                  <option value="10">February</option>
+                                  <option value="11">March</option>
+                                  <option value="12">April</option>
+                                </select>
+                              </div>
+                              <div class="col-md-6">
+                                <label>Date Paid:</label><br/>
+                                <input type="text" class="form-control" name="date" required/>
+                                <!-- DATE PICKER -->
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label>Payment Type:</label><br/>
+                                <select class="custom-select btn-block">
+                                  <option selected>Pick a payment type..</option>
+                                  <option value="1">Cash</option>
+                                  <option value="2">Cheque</option>
+                                  <option value="3">Promissory Note</option>
+                                  <option value="4">Others</option>
+                                </select>
+                              </div>
+                              <div class="col-md-6">
+                                <label>Amount Paid:</label>
+                                <input type="text" class="form-control" required>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label>Fees Description:</label>
+                                <input type="text" class="form-control">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <label>Payment Notes:</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#confirmModal">Add financial record</button>
+                          <div class="modal" id="confirmModal" tabindex="-1" role="dialog">
+                              <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Save changes</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Are you sure you want to save this record?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" id="saveChanges" class="btn btn-primary" data-dismiss="alert">Save changes</button>
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="card-link margin"><i class="fa fa-print" aria-hidden="true"></i> Print Records</a>
+              </div>
+              
+            </div>
+            <div class="row table-records table-responsive">
+              <table class="table table-bordered bg-nav table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <!-- Refer to database for headings -->
+                    <th scope="col">Payment ID</th>
+                    <th scope="col">Payment Date</th>
+                    <th scope="col">Amount Paid</th>
+                    <th scope="col">OR No.</th>
+                    <th scope="col">Payment Type</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0001</td>
+                    <td>01-07-18</td>
+                    <td>2,000.00</td>
+                    <td>00001AAA</td>
+                    <td>Cash</td>
+                    <td class="text-center"><a href="user-record.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+                    <td class="text-center"><a href="user-record.html" class="btn btn-success btn-sm view-button">Edit</a></td>
+                  </tr>
+                  <tr>
+                    <td>0002</td>
+                    <td>02-20-18</td>
+                    <td>3,000.00</td>
+                    <td>00001AAB</td>
+                    <td>Cash</td>
+                    <td class="text-center"><a href="user-record.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+                    <td class="text-center"><a href="user-record.html" class="btn btn-success btn-sm view-button">Edit</a></td>
+                  </tr>
+                  <tr>
+                    <td>0003</td>
+                    <td>03-20-18</td>
+                    <td>2,000.00</td>
+                    <td>00001AAC</td>
+                    <td>Promissory Note</td>
+                    <td class="text-center"><a href="user-record.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+                    <td class="text-center"><a href="user-record.html" class="btn btn-success btn-sm view-button">Edit</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- CONTENT -->
+
+  {% endblock %}
+
+    <!-- JQUERY -->
+    <script src="02-javascript/jquery-3.2.1.min.js"></script>
+    <script>
+      $(function(){
+        $(".success-message").hide();
+        $("#saveChanges").click(function(){
+           $("#confirmModal").modal('toggle'); 
+           $(".success-message").show();
+        });
+      });
+    </script>
+
+    <!-- Bootstrap CDN in case something glitches -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+    <script src="02-javascript/bootstrap.bundle.js"></script>
+    <script src="02-javascript/bootstrap.js"></script>
+    <script src="02-javascript/bootstrap.min.js"></script>
+  </body>
+  </html>

@@ -106,7 +106,7 @@ class Offering(models.Model):
 	employee_ID = models.ForeignKey(Employee, on_delete=models.CASCADE, default=0)
 	schoolYr_ID = models.ForeignKey(School_Year, on_delete=models.CASCADE, default=0)
 
-class Enrollmentt_Details(models.Model):
+class Enrollment_Details(models.Model):
 	enrollmentDetails_ID = models.AutoField(primary_key=True)
 	enrollment_ID = models.ForeignKey(Enrollment, on_delete=models.CASCADE, default=0)
 	offering_ID = models.ForeignKey(Offering, on_delete=models.CASCADE, default=0)
@@ -123,12 +123,3 @@ class Teacher_Details(models.Model):
 	schoolYr_ID = models.ForeignKey(School_Year, on_delete=models.CASCADE, default=0)
 	status = models.CharField(max_length=50)
 	section_ID = models.ForeignKey(Section, on_delete=models.CASCADE, default=0)
-
-
-
-class User(models.Model):
-	user_ID = models.AutoField(primary_key=True)
-	username = models.CharField(max_length=50)
-	password = models.CharField(max_length=50)
-	email = models.CharField(max_length=100)
-	units = models.IntegerField()

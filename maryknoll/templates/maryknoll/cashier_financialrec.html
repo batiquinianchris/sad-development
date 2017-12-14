@@ -1,0 +1,183 @@
+{% extends 'maryknoll/cashier_base.html' %}
+
+{% block body %}
+
+    <!-- CONTENT -->
+    <div class="container-fluid bg-content">
+      <div class="content">
+        <div class="row search-bar">
+          <div class="col-lg-6">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button id="selected" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Category
+                </button>
+                <!-- Supply dropdown menu categories, refer to database -->
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">All categories</a>
+                  <a class="dropdown-item" href="#">Student ID</a>
+                  <a class="dropdown-item" href="#">First name</a>
+                  <a class="dropdown-item" href="#">Last name</a>
+                  <a class="dropdown-item" href="#">Year/Level</a>
+                  <a class="dropdown-item" href="#">Status</a>
+                </div>
+              </div>
+              <input type="text" class="changeIfStatus form-control" placeholder="Search records..." aria-label="Search records...">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-primary">Search</button>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <a href="#" class="card-link margin float-right print"><i class="fa fa-print" aria-hidden="true"></i> Print Records</a>
+          </div>
+        </div>
+        <div class="row table-records table-responsive">
+          <table class="table table-bordered bg-nav table-hover">
+            <thead class="thead-light">
+              <tr>
+                <!-- Refer to database for headings -->
+                <th scope="col">Student ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Year/Grade</th>
+                <th scope="col">Status</th>
+                <th scope="col">View</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0001</td>
+                <td>Millie-Bobbie</td>
+                <td>Brown</td>
+                <td>Grade 10</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-record.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0002</td>
+                <td>Natalia</td>
+                <td>Dyer</td>
+                <td>Grade 6</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0003</td>
+                <td>David</td>
+                <td>Harbour</td>
+                <td>Grade 12</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0004</td>
+                <td>Charlie</td>
+                <td>Heaton</td>
+                <td>Grade 1</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0005</td>
+                <td>Joe</td>
+                <td>Keery</td>
+                <td>Grade 2</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+                <td>0006</td>
+                <td>Gaten</td>
+                <td>Madrazzo</td>
+                <td>Grade 5</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0007</td>
+                <td>Caleb</td>
+                <td>McLaughlin</td>
+                <td>Grade 3</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0008</td>
+                <td>Dacre</td>
+                <td>Montgomery</td>
+                <td>Grade 5</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0009</td>
+                <td>Winona</td>
+                <td>Ryder</td>
+                <td>Grade 7</td>
+                <td><i class="fa fa-circle active-status"></i> Active</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+              <tr>
+                <td>0010</td>
+                <td>Sadie</td>
+                <td>Sink</td>
+                <td>Grade 4</td>
+                <td><i class="fa fa-circle inactive-status"></i> Inactive</td>
+                <td class="text-center"><a href="user-profile.html" class="btn btn-secondary btn-sm view-button">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination pagination-md justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- CONTENT -->
+    
+  {% endblock %}
+
+
+    <!-- JQUERY -->
+    <script src="02-javascript/jquery-3.2.1.min.js"></script>
+
+    <!-- Allows dropdown menu to select child -->
+    <script>
+    $(function(){
+
+      $(".dropdown-menu a").click(function(){
+
+            $("#selected:first-child").text($(this).text());
+            $("#selected:first-child").val($(this).text());
+            if($("#selected:first-child").val() == "Status"){
+                $(".changeIfStatus").replaceWith("<h1> test </h1>"); // must change into dropdown
+            }
+            else{
+
+            }
+
+         });
+
+      });
+    </script>
+
+    <!-- Bootstrap CDN in case something glitches -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+    <script src="02-javascript/bootstrap.bundle.js"></script>
+    <script src="02-javascript/bootstrap.js"></script>
+    <script src="02-javascript/bootstrap.min.js"></script>
+
+  </body>
+</html>
